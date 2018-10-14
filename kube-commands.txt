@@ -1,0 +1,37 @@
+minikube start --vm-driver hyperv --hyperv-virtual-switch minikubeswitch
+minikube delete
+
+kubectl get nodes
+kubectl get pods
+
+##dasboard
+minikube dashboard
+
+# get by replication controller
+kubectl get rc
+
+## Create Pods
+kubectl create -f replication-pod.yml
+
+## To Apply Changes
+kubectl apply -f replication-pod.yml
+
+##create a service and map it to a pod using labels
+kubectl expose rc hello-rc --name=hello-svc --target-port=8080 --type=NodePort
+
+## List Service
+kubectl get svc
+
+## Delete Service
+kubectl delete svc hello-svc
+
+## Create service from YAML( the way to go)
+kubectl create -f service-create.yml
+
+## get ips asscoiate withs ervices
+kubectl get ep
+jubectl describe ep hello-svc
+
+
+
+
